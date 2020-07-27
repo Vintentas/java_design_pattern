@@ -103,8 +103,8 @@ class MakerPizza {
     }
 
 
-    void makePizza () {
-        if (ingredients.isVegetables() && ingredients.isCheese() && ingredients.isMeet()) {
+    void makePizza (){
+        if (ingredients.isVegetables() && ingredients.isCheese() && ingredients.isMeet()){
             System.out.println("Pizza is being cooked...");
             System.out.println("Pizza is being cooked...");
             System.out.println("Pizza is cooked");
@@ -123,7 +123,7 @@ class Deliver {
     }
 
     void deliverPizza() {
-        if (makerPizza.isPizza()) {
+        if(makerPizza.isPizza()) {
             System.out.println("Pizza is being delivered...");
             System.out.println("Pizza is being delivered...");
             System.out.println("Pizza is delivered");
