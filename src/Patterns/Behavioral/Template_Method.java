@@ -23,7 +23,6 @@ public class Template_Method {
     }
 }
 
-
 abstract class PlanForSaturday {
     void printPlan() {
         step1();
@@ -54,9 +53,16 @@ abstract class PlanForSaturday {
     }
 }
 
-class Standard extends PlanForSaturday {}
+class Standard extends PlanForSaturday {
+    Standard () {
+        System.out.println("---Standard---");
+    }
+}
 
 class MeetWithFriends extends PlanForSaturday {
+    MeetWithFriends () {
+        System.out.println("---MeetWithFriends---");
+    }
     void step3() {
         System.out.println("Do makeup");
     }
@@ -72,6 +78,9 @@ class MeetWithFriends extends PlanForSaturday {
 }
 
 class SpendTimeAtHome extends PlanForSaturday {
+    SpendTimeAtHome () {
+        System.out.println("---SpendTimeAtHome---");
+    }
     void step3 () {}
     void step4 () {
         System.out.println("Play computer games");
