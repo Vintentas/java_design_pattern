@@ -1,12 +1,16 @@
-package Patterns.Structural;
+package Patterns.Structural.Composite;
 /*
 Компоновщик — это структурный паттерн проектирования, который позволяет сгруппировать
 множество объектов в древовидную структуру, а затем работать с ней так, как будто это единичный объект.
+
+В примере класс Bag - компоновщик, он может содержать как объекты типа Something, так и объекты типа Bag.
+Клиент собирает сумку с вещами, а затем перебирает их.
  */
 
 import java.util.ArrayList;
 
 public class Composite {
+
     public static void main(String[] args) {
         Thing many = new Something("some many");
         Thing key = new Something("a key");
@@ -27,50 +31,5 @@ public class Composite {
         littleBag.removeThings(key);
         bigBag.print();
 
-    }
-}
-
-interface Thing {
-    void print();
-
-}
-
-class Something implements Thing {
-    String name;
-
-    Something (String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void print() {
-        System.out.println("I'am " + name);
-    }
-}
-
-class Bag implements Thing {
-    ArrayList<Thing> things = new ArrayList();
-    String name;
-
-    Bag (String name) {
-        this.name = name;
-    }
-
-    public void addThings (Thing thing) {
-        things.add(thing);
-    }
-
-    public void removeThings (Thing thing) {
-        things.remove(thing);
-    }
-
-    @Override
-    public void print() {
-        if(things != null) {
-            System.out.println("I'am " + name + ". I have: ");
-            for (Thing thing : things) {
-                thing.print();
-            }
-        }
     }
 }
