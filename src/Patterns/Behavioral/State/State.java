@@ -1,4 +1,4 @@
-package Patterns.Behavioral;
+package Patterns.Behavioral.State;
 
 /*
  Состояние — это поведенческий паттерн проектирования, который позволяет объектам менять поведение в зависимости от
@@ -8,6 +8,9 @@ package Patterns.Behavioral;
  чтобы менять поведение основного объекта, делегируя работу вложенным объектам-помощникам.
  Однако в Стратегии эти объекты не знают друг о друге и никак не связаны.
  В Состоянии сами конкретные состояния могут переключать контекст.
+
+ В примере состояние объекта CassetteRecorder зависит от объекта Cassette.
+ Магнитофон проигрывает музыку в зависимости от вставленной кассеты.
  */
 
 
@@ -24,43 +27,5 @@ public class State {
         cassetteRecorder.setCassette(new PopCassette());
         cassetteRecorder.play();
 
-    }
-}
-
-class CassetteRecorder {
-    Cassette cassette;
-
-    public void setCassette(Cassette cassette) {
-        this.cassette = cassette;
-    }
-
-    public void play() {
-        cassette.play();
-    }
-}
-
-interface Cassette{
-    void play();
-}
-
-class RockCassette implements Cassette {
-    @Override
-    public void play() {
-        System.out.println("Rock music is playing...");
-    }
-
-}
-
-class ClassicCassette implements Cassette {
-    @Override
-    public void play() {
-        System.out.println("Classic music is playing...");
-    }
-}
-
-class PopCassette implements Cassette {
-    @Override
-    public void play() {
-        System.out.println("Pop music is playing...");
     }
 }
